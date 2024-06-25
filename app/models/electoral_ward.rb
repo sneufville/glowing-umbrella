@@ -1,0 +1,2 @@
+class ElectoralWard < ApplicationRecord
+end
