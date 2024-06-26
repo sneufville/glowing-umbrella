@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_25_205955) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_26_175754) do
   create_table "electoral_wards", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -30,6 +30,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_25_205955) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "electoral_ward_id", null: false
+    t.integer "service_area_id", null: false
+    t.index ["electoral_ward_id"], name: "index_service_requests_on_electoral_ward_id"
+    t.index ["service_area_id"], name: "index_service_requests_on_service_area_id"
   end
 
+  add_foreign_key "service_requests", "electoral_wards"
+  add_foreign_key "service_requests", "service_areas"
 end
