@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-06-25 15:59:55
+  service_request: MyString
+  neighbourhood: MyString
+  location: MyString
+
+two:
+  date: 2024-06-25 15:59:55
+  service_request: MyString
+  neighbourhood: MyString
+  location: MyString
