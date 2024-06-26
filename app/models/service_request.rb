@@ -4,5 +4,5 @@ class ServiceRequest < ApplicationRecord
   belongs_to :electoral_ward
 
   # validations
-  validates :service_request, :neighbourhood, presence: true
+  validates :service_request, :location, presence: true
 end
