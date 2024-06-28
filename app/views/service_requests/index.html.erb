@@ -1,9 +1,13 @@
-<div>
-  <h1 class="font-bold text-4xl">ServiceRequests#index</h1>
-  <p>Find me in app/views/service_requests/index.html.erb</p>
-  <% @service_requests.each do |service_request| %>
-    <h1><%= service_request['service_request'] %></h1>
-    <p><%= service_request['neighbourhood'] %></p>
-    <br>
-  <% end %>
+<div class="flex flex-col gap-y-2">
+  <h1 class="text-4xl">311 Service Requests</h1>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <% @service_requests.each do |service_request| %>
+      <div class="bg-slate-50 p-2 rounded">
+        <%#= service_request.inspect %>
+        <h2 class="text-2xl"><%= link_to service_request['service_request'], service_request %></h2>
+        <p><%= service_request['neighbourhood'] %></p>
+        <span><%= service_request['electoral_ward'] %></span>
+      </div>
+    <% end %>
+  </div>
 </div>

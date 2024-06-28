@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'service_areas/index'
+  get 'electoral_ward/index'
   get 'service_requests/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,6 +9,6 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
-  resources :service_requests, :about
+  root "service_requests#index"
+  resources :service_requests, :about, :electoral_wards, :service_areas
 end

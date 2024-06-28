@@ -1,0 +1,2 @@
+module ElectoralWardHelper
+end

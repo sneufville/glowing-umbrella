@@ -3,5 +3,5 @@ class ElectoralWard < ApplicationRecord
   has_many :service_request
 
   # validations
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end
