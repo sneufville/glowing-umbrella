@@ -1,4 +1,39 @@
 <div class="flex flex-col gap-y-2">
+  <form action="" method="get">
+    <div class="border-2 border-gray-900/10 px-2">
+      <h2 class="text-base font-semibold">Filter Service Requests</h2>
+      <div class="flex items-center gap-x-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-2">
+          <div class="w-full">
+            <label for="service_request_title" class="sr-only">Filter Service Request</label>
+            <input type="text" class="w-full block rounded" id="service_request_title" name="title" placeholder="Filter Service Requests" value="<%= params[:title] %>">
+          </div>
+          <div class="w-full">
+            <label for="service_area_id" class="sr-only">Service Area</label>
+            <select name="sa" id="service_area_id" class="w-full block rounded" value="<%= params[:sa] %>">
+              <option value="">All Service Areas</option>
+              <% @service_areas.each do |service_area| %>
+              <option value="<%= service_area.id %>" <%= params[:sa].to_i == service_area.id ? 'selected' : '' %>><%= service_area.name %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="w-full">
+            <label for="electoral_ward_id" class="sr-only">Electoral Ward</label>
+            <select name="ew" id="electoral_ward_id" class="w-full block rounded" value="<%= params[:ew] %>">
+              <option value="">All Electoral Wards</option>
+              <% @electoral_wards.each do |ward| %>
+              <option value="<%= ward.id %>" <%= params[:ew].to_i == ward.id ? 'selected' : '' %>><%= ward.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div>
+          <button type="submit">Filter</button>
+          <button type="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </form>
   <h1 class="text-4xl">311 Service Requests</h1>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% @service_requests.each do |service_request| %>

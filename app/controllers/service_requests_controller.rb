@@ -1,9 +1,18 @@
 class ServiceRequestsController < ApplicationController
   include Pagy::Backend
   def index
+    @electoral_wards = ElectoralWard.all
+    @service_areas = ServiceArea.all
+
     service_request_title = params[:title] || nil
     service_area_id = params[:sa] || nil
+    if service_area_id == ''
+      service_area_id = nil
+    end
     electoral_ward_id = params[:ew] || nil
+    if electoral_ward_id == ''
+      electoral_ward_id = nil
+    end
     filter_condition = ["service_request like ?", "%#{service_request_title}%"]
     if service_area_id
       filter_condition = ["service_request like ? AND service_area_id = ?", "%#{service_request_title}%", service_area_id]
@@ -12,7 +21,7 @@ class ServiceRequestsController < ApplicationController
     elsif electoral_ward_id && service_area_id
       filter_condition = ["service_request like ? AND electoral_ward_id = ? AND service_area_id", "#{service_request_title}", electoral_ward_id, service_area_id]
     end
-    # @service_requests = ServiceRequest.includes(:electoral_ward, :service_area).where(["service_request like ? OR electoral_ward_id in (?)", "%#{service_request_title}%", electoral_ward_id])
+
     @pagy, @service_requests = pagy(ServiceRequest.includes(:electoral_ward, :service_area).where(filter_condition))
   end
 
