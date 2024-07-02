@@ -10,10 +10,16 @@
       <h1 class="text-4xl"><%= @service_request.service_request %></h1>
       <hr>
       <div class="flex flex-col gap-y-2">
+        <h2 class="font-medium text-lg">Service Area</h2>
         <p><%= @service_request.service_area.name %></p>
+        <h2 class="font-medium text-lg">Neighbourhood</h2>
+        <p><%= @service_request.neighbourhood %></p>
+        <h2 class="font-medium text-lg">Electoral Ward</h2>
         <p><%= @service_request.electoral_ward.name %></p>
+        <h2 class="font-medium text-lg">Date Added</h2>
         <p><%= @service_request.date %></p>
-        <h2 class="text-2xl">Map Of Service Request</h2>
+        <h2 class="font-medium text-lg">Geo Data</h2>
+        <p><%= @service_request.location %></p>
       </div>
     </div>
   <% end %>
