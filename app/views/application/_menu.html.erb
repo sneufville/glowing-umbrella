@@ -1,7 +1,7 @@
 <div class="flex items-center justify-between">
-  <span class="border-2 border-red-700 p-2 text-red-700 font-medium uppercase">DataBox</span>
+  <a href="/" class="border-2 border-red-700 p-2 text-red-700 font-medium uppercase">DataBox</a>
   <div class="flex items-center gap-x-8">
-    <a href="service_requests" title="service requests" class="<%= 'underline font-medium' if request.path == '/service_requests' %>">Service Requests</a>
+    <a href="service_requests" title="service requests" class="<%= 'underline font-medium' if request.path == '/service_requests' or request.path == '/' %>">Service Requests</a>
     <a href="service_areas" title="service areas" class="<%= 'underline font-medium' if request.path == '/service_areas' %>">Service Areas</a>
     <a href="electoral_wards" title="electoral wards" class="<%= 'underline font-medium' if request.path == '/electoral_wards' %>">Electoral Wards</a>
     <a href="about" title="about databox" class="<%= 'underline font-medium' if request.path == '/about' %>">About</a>
