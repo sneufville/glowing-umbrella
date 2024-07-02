@@ -4,7 +4,8 @@
   <div class="flex flex-col gap-y-4">
     <% @electoral_wards.each do |ward| %>
       <div class="p-2 rounded bg-slate-50">
-        <h2 class="text-2xl"><%= ward.name %></h2>
+        <h2 class="text-2xl"><%= link_to ward['name'], ward %></h2>
+        <a href="/service_requests?ew=<%= ward['id'] %>">View Related Service Requests</a>
       </div>
     <% end %>
   </div>

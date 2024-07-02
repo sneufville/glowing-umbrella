@@ -15,7 +15,7 @@
         <h2 class="font-medium text-lg">Neighbourhood</h2>
         <p><%= @service_request.neighbourhood %></p>
         <h2 class="font-medium text-lg">Electoral Ward</h2>
-        <p><%= @service_request.electoral_ward.name %></p>
+        <p><a class="underline" href="/electoral_wards/<%= @service_request.electoral_ward.id %>"><%= @service_request.electoral_ward.name %></a></p>
         <h2 class="font-medium text-lg">Date Added</h2>
         <p><%= @service_request.date %></p>
         <h2 class="font-medium text-lg">Geo Data</h2>

@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_26_175754) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_02_210031) do
   create_table "electoral_wards", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "councillor"
   end
 
   create_table "service_areas", force: :cascade do |t|

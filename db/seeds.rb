@@ -27,7 +27,8 @@ service_requests = CSV.parse(service_req_data, headers: true)
 # create electoral wards
 wards.each do |ward|
   ElectoralWard.create!(
-    name: ward['Name']
+    name: ward['Name'],
+    councillor: ward['Councillor']
   )
 end
 
