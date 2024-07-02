@@ -5,7 +5,7 @@
     <% @service_areas.each do |service_area| %>
       <div class="p-2 bg-slate-50 rounded">
         <h2 class="text-2xl"><%= service_area.name %></h2>
-        <a href="">Show <span class="font-medium"><%= @related_counts[service_area] %></span> Related Service Request(s) </a>
+        <a href="/service_requests?sa=<%= service_area.id %>">Show <span class="font-medium"><%= @related_counts[service_area] %></span> Related Service Request(s) </a>
       </div>
     <% end %>
   </div>
