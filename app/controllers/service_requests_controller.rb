@@ -22,6 +22,7 @@ class ServiceRequestsController < ApplicationController
       filter_condition = ["service_request like ? AND electoral_ward_id = ? AND service_area_id", "#{service_request_title}", electoral_ward_id, service_area_id]
     end
 
+    @count = ServiceRequest.where(filter_condition).count
     @pagy, @service_requests = pagy(ServiceRequest.includes(:electoral_ward, :service_area).where(filter_condition))
   end
 

@@ -1,5 +1,5 @@
 <%= render "application/menu" %>
-<div class="flex flex-col gap-y-2">
+<div class="flex flex-col gap-y-4">
   <form action="" method="get">
     <div class="border-2 border-gray-900/10 bg-gray-50 p-2 rounded">
       <h2 class="text-base font-semibold">Filter Service Requests</h2>
@@ -34,7 +34,7 @@
       </div>
     </div>
   </form>
-  <h1 class="text-4xl">311 Service Requests</h1>
+  <h1 class="text-4xl">311 Service Requests <span class="px-2 rounded bg-slate-100"><%= @count %> Result(s)</span></h1>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% if @service_requests.count > 0 %>
       <% @service_requests.each do |service_request| %>
